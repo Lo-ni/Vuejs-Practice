@@ -4,20 +4,22 @@
     <h6 v-if="isLoggedIn">
       {{ loginError }}
     </h6>
-    <FormulateForm name="loginForm" @submit="loginUser">
+    <FormulateForm name="loginForm" @submit="loginUser" id="form">
       <FormulateInput
+        id="input"
         name="username"
         type="text"
         v-model="input.username"
         placeholder="Username"
       />
       <FormulateInput
+        id="input"
         name="password"
         type="password"
         v-model="input.password"
         placeholder="Password"
       />
-      <FormulateInput type="submit" label="Login" />
+      <FormulateInput id="button" type="submit" label="Login" />
     </FormulateForm>
   </div>
 </template>
@@ -72,3 +74,27 @@ export default {
   },
 };
 </script>
+
+<style>
+#form {
+  padding: 16px;
+}
+
+#input {
+  padding: 8px;
+  margin: 4px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  width: 25%;
+}
+
+#button {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 8px;
+  margin-top: 16px;
+  width: 25%;
+  background-color: lightseagreen;
+  border-radius: 4px;
+  border-color: transparent;
+  font-weight: bold;
+}
+</style>
