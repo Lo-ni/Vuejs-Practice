@@ -57,6 +57,7 @@ export default {
             this.isLoggedIn = response.status === 200;
             this.loginError = !this.isLoggedIn ? "Login Error" : "";
             if (this.isLoggedIn) {
+              this.$store.commit("loginUser", response.data.results[0]);
               this.$router.push("main");
             }
           })
