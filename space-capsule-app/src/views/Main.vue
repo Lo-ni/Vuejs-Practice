@@ -36,7 +36,7 @@
                 icon
                 id="iconBtn"
                 :disabled="item.type !== 'Dragon 2.0'"
-                @click="launch"
+                @click="launch(item)"
                 ><v-icon>mdi-rocket-launch</v-icon></v-btn
               >
             </v-list-item-action>
@@ -83,8 +83,8 @@ export default {
         this.errorMsg = "Login to proceed";
       }
     },
-    launch() {
-      this.$toastr.i("Launched");
+    launch(item) {
+      this.$toastr.i(`Raumkapsel ${item.serial} startet`);
     },
     getColor(item) {
       switch (item.status) {
