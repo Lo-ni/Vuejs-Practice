@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <h1>Main Page</h1>
+    <h6 v-if="this.errorMsg.length > 0">{{ this.errorMsg }}</h6>
     <ul style="list-style-type: none;">
       <li v-for="item in this.items" :key="item.id">
         <div>
@@ -35,7 +36,6 @@ export default {
       axios
         .get("https://api.spacexdata.com/v4/capsules")
         .then((response) => {
-          console.log(response);
           this.errorMsg = response.status !== 200 ? "Error catching data" : "";
           if (this.errorMsg.length === 0) {
             this.items = _.sortBy(response.data, (item) => item.status);
