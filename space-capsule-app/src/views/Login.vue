@@ -1,16 +1,14 @@
 <template>
   <div class="login">
-    <h1 id="form">Login</h1>
-    <v-form id="form" ref="loginForm">
+    <h1 style="margin: 32px;">Login</h1>
+    <v-form style="margin: 32px;" ref="loginForm">
       <v-text-field
-        id="input"
         v-model="input.username"
         :rules="input.rulesUsername"
         label="Username"
         required
       />
       <v-text-field
-        id="input"
         type="password"
         v-model="input.password"
         :rules="input.rulesPassword"
@@ -19,7 +17,7 @@
       />
       <v-btn id="button" @click="loginUser">Login</v-btn>
     </v-form>
-    <p id="form" v-if="loginError.length > 0">
+    <p style="margin: 32px;" v-if="loginError.length > 0">
       {{ loginError }}
     </p>
   </div>
@@ -73,14 +71,6 @@ export default {
 </script>
 
 <style>
-#form {
-  margin: 32px;
-}
-
-#input {
-  padding: 8px;
-}
-
 #button {
   margin-top: 32px;
   width: 100%;
