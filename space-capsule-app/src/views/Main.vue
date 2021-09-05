@@ -1,12 +1,15 @@
 <template>
   <div class="main">
     <h1>Main Page</h1>
-    <ul>
+    <ul style="list-style-type: none;">
       <li v-for="item in this.items" :key="item.id">
         <div>
           <p>{{ item.serial }} - {{ item.type }}</p>
           <p id="text">Status: {{ item.status }}</p>
           <p id="text">{{ item.last_update }}</p>
+          <button @click="launch" :disabled="item.type !== 'Dragon 2.0'">
+            Launch
+          </button>
         </div>
       </li>
     </ul>
@@ -41,6 +44,9 @@ export default {
         .catch((error) => {
           this.errorMsg = error;
         });
+    },
+    launch() {
+      this.$toastr.i("Launched");
     },
   },
 };
